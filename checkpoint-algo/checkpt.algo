@@ -1,0 +1,32 @@
+START
+    Initialize longueur = 0, compteurMot = 0, compteurVoyelle = 0, insideMot = False
+    WHILE True
+        Read character
+        IF character == '.'
+            BREAK
+        ENDIF
+
+        longueur = longueur + 1
+        
+        IF character IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+            compteurVoyelle = compteurVoyelle + 1
+        ENDIF
+
+        IF character == ' '
+            IF insideMot == True
+                compteurMot = compteurMot + 1
+                insideMot = False
+            ENDIF
+        ELSE
+            insideMot = True
+        ENDIF
+    ENDWHILE
+
+    IF insideMot == True
+        compteurMot = compteurMot + 1
+    ENDIF
+
+    PRINT "Length:", longueur
+    PRINT "Words:", compteurMot
+    PRINT "Vowels:", compteurVoyelle
+END
